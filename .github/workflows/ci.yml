@@ -34,10 +34,10 @@ jobs:
           
       # Run a command that prints (echo) a message - the message must contain the SHA1 key (short) of the commit that triggered the job
       - name: Print commit SHA1
-        run: echo "SHA1 hash "+ ${{ github.sha }}
+        run: echo "SHA1 hash "+ $( ${{ github.sha }} | cut -c -7)
 
       - name: Print commit SHA1
-        run: echo "SHA1 hash "+ $(git rev-parse HEAD)
+        run: echo "SHA1 hash " $(git rev-parse HEAD | cut -c -7)
       
           
           
